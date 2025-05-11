@@ -49,3 +49,6 @@ modules:
       - type: git
         url: https://github.com/danielknobe/blobbyvolley2.git
         tag: v1.1.1
+      - type: patch
+        paths: 
+          - appdata-developer.patch
