@@ -1,0 +1,16 @@
+--- a/linux/blobby.appdata.xml	2025-05-11 15:37:59.704965930 +0200
++++ b/linux/blobby.appdata.xml	2025-05-11 15:40:24.143294564 +0200
+@@ -7,10 +7,13 @@
+   <releases>
+     <release version="1.0" date="2014-03-22" />
+   </releases>
+   <name>Blobby Volley 2</name>
+   <summary>The head-to-head multiplayer volley-ball game.</summary>
++  <developer id="de.blobbyvolley">
++    <name>Daniel Knobe</name>
++  </developer>
+   <description>
+     <p>
+         Blobby Volley is one of the most popular freeware games where
+         two blobbed shaped entities play volleyball against each other.
+         You can play against a teammate or alone against computer opponents.

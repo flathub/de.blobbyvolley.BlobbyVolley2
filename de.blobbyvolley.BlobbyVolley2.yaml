@@ -1,6 +1,6 @@
 app-id: de.blobbyvolley.BlobbyVolley2
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 command: blobby
 rename-icon: blobby
@@ -9,7 +9,9 @@ rename-appdata-file: blobby.appdata.xml
 
 finish-args:
   - --device=dri
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
   - --socket=pulseaudio
   - --share=network
   - --persist=.blobby
@@ -25,8 +27,8 @@ modules:
       - ./b2 install variant=release link=shared runtime-link=shared cxxflags="$CXXFLAGS" linkflags="$LDFLAGS" -j $FLATPAK_BUILDER_N_JOBS
     sources:
       - type: archive
-        url: https://github.com/boostorg/boost/releases/download/boost-1.82.0/boost-1.82.0.tar.xz
-        sha256: fd60da30be908eff945735ac7d4d9addc7f7725b1ff6fcdcaede5262d511d21e
+        url: https://github.com/boostorg/boost/releases/download/boost-1.88.0/boost-1.88.0-b2-nodocs.tar.xz
+        sha256: ad9ce2c91bc0977a7adc92d51558f3b9c53596bb88246a280175ebb475da1762
 
   - name: physfs
     buildsystem: cmake-ninja
@@ -47,3 +49,6 @@ modules:
       - type: git
         url: https://github.com/danielknobe/blobbyvolley2.git
         tag: v1.1.1
+      - type: patch
+        paths: 
+          - appdata-developer.patch
