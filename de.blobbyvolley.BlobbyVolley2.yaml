@@ -1,6 +1,6 @@
 app-id: de.blobbyvolley.BlobbyVolley2
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: blobby
 rename-icon: blobby
@@ -33,18 +33,24 @@ modules:
   - name: physfs
     buildsystem: cmake-ninja
     config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DPHYSFS_BUILD_TEST=OFF
+      - -DPHYSFS_BUILD_STATIC=OFF
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     sources:
       - type: archive
         url: https://github.com/icculus/physfs/archive/refs/tags/release-3.2.0.tar.gz
         sha256: 1991500eaeb8d5325e3a8361847ff3bf8e03ec89252b7915e1f25b3f8ab5d560
     cleanup:
+      - /include
+      - /lib/pkgconfig
       - /bin
 
   - name: blobbyvolley2
     buildsystem: cmake
     build-commands:
       - sed -i 's#<id>blobby</id>#<id>de.blobbyvolley.BlobbyVolley2</id>#g' linux/blobby.appdata.xml
+    config-opts:
+      - -DCMAKE_CXX_FLAGS=-Wno-error=template-body
     sources:
       - type: git
         url: https://github.com/danielknobe/blobbyvolley2.git
