@@ -21,17 +21,18 @@ How to install?
 How to build?
 ---
 
-Make sure you have Flatpak, Flathub.org repository and `flatpak-builder`
-command installed. Then run this command:
+Make sure you have Flatpak and `flatpak-builder` installed. 
+
+Install Flathub.org repository user-wide:
 
 ```bash
-flatpak-builder build de.blobbyvolley.BlobbyVolley2.yaml \
-    --force-clean --install-deps-from=flathub
+flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo \
+   --if-not-exists  --user
 ```
 
-Use this command to install built package locally:
+Use this command to build the package and install it locally:
 
 ```bash
 flatpak-builder build de.blobbyvolley.BlobbyVolley2.yaml \
-    --export-only --install --user
+   --force-clean --install-deps-from=flathub --user --install
 ```
