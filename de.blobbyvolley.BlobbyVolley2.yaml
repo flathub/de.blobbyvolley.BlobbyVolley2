@@ -42,6 +42,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/danielknobe/blobbyvolley2.git
+        commit: 640d2d30941cb57dc7268d2f0158a43b54b97ed1
         tag: v1.1.1
       - type: patch
         paths: 
