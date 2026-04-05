@@ -35,8 +35,6 @@ modules:
 
   - name: blobbyvolley2
     buildsystem: cmake
-    build-commands:
-      - sed -i 's#<id>blobby</id>#<id>de.blobbyvolley.BlobbyVolley2</id>#g' linux/blobby.appdata.xml
     config-opts:
       # https://github.com/danielknobe/blobbyvolley2/issues/164
       - -DCMAKE_CXX_FLAGS=-Wno-error=template-body
@@ -46,5 +44,6 @@ modules:
         commit: 640d2d30941cb57dc7268d2f0158a43b54b97ed1
         tag: v1.1.1
       - type: patch
-        paths: 
-          - appdata-developer.patch
+        paths:
+          # Backports AppStream data changes from master branch.
+          - backport-appstream-data.patch
