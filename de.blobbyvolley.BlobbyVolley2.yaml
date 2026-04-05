@@ -38,6 +38,7 @@ modules:
     build-commands:
       - sed -i 's#<id>blobby</id>#<id>de.blobbyvolley.BlobbyVolley2</id>#g' linux/blobby.appdata.xml
     config-opts:
+      # https://github.com/danielknobe/blobbyvolley2/issues/164
       - -DCMAKE_CXX_FLAGS=-Wno-error=template-body
     sources:
       - type: git
