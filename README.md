@@ -36,3 +36,6 @@ Use this command to build the package and install it locally:
 flatpak-builder build de.blobbyvolley.BlobbyVolley2.yaml \
    --force-clean --install-deps-from=flathub --user --install
 ```
+
+This issue may occur while building the app:
+https://github.com/flatpak/flatpak-builder/issues/317
